@@ -11,5 +11,8 @@
     "url": "Gk-999"
   },
   "author": "Gk",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
