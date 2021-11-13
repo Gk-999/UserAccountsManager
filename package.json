@@ -1,0 +1,15 @@
+{
+  "name": "useraccountsmanager",
+  "version": "1.0.0",
+  "description": "This is a User Account Manager app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "Gk-999"
+  },
+  "author": "Gk",
+  "license": "ISC"
+}
