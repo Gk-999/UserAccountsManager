@@ -39,8 +39,25 @@ const createUser = (request, response) => {
   })
 }
 
+const updateUser = (request, response) => {
+  const id = parseInt(request.params.id)
+  const { Password, OldPassword, Status, Role } = request.body
+
+  pool.query(
+    'UPDATE "Users" SET "Password" = $1, "OldPassword" = $2, "Status" = $3, "Role" = $4 WHERE "UserId" = $5',
+    [Password, OldPassword, Status,Role, id],
+    (error, results) => {
+      if (error) {
+        throw error
+      }
+      response.status(200).send(`User modified with ID: ${id}`)
+    }
+  )
+}
+
 module.exports = {
     getUsers,
     getUserById,
-    createUser
+    createUser,
+    updateUser
   }
