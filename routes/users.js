@@ -7,5 +7,6 @@ const db = require('../database/queries')
 //   res.send('respond with a resource');
 // });
 router.get('/', db.getUsers);
+router.get('/:id', db.getUserById);
 
 module.exports = router;
