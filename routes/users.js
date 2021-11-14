@@ -8,5 +8,6 @@ const db = require('../database/queries')
 // });
 router.get('/', db.getUsers);
 router.get('/:id', db.getUserById);
+router.post('/', db.createUser)
 
 module.exports = router;

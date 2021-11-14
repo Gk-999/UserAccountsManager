@@ -8,7 +8,6 @@ const pool = new Pool({
 })
 
 const getUsers = (request, response) => {
-  console.log("In");
   pool.query('SELECT * FROM "Users" ORDER BY "UserId" ASC', (error, results) => {
     if (error) {
       console.log(error);
@@ -29,7 +28,19 @@ const getUserById = (request, response) => {
   })
 }
 
+const createUser = (request, response) => {
+  const { UserId, Password, Status, Role } = request.body
+
+  pool.query('INSERT INTO "Users" ("UserId","Password", "Status", "Role") VALUES ($1, $2, $3, $4)', [UserId, Password, Status, Role], (error, results) => {
+    if (error) {
+      throw error
+    }
+    response.status(201).send(`User added successfully`)
+  })
+}
+
 module.exports = {
     getUsers,
-    getUserById
+    getUserById,
+    createUser
   }
